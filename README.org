@@ -1,0 +1,7 @@
+En l'ods hi tens el layout visual i estadístiques.
+
+Modifica el =ct= al teu gust, guarda'l a =/usr/share/X11/xkb/symbols/ct=
+i executa =catdvorak=.  Per tornar al teclat normal, =setxkbmap -layout
+es=.  Crec que amb això t'anirà bé, però potser m'he deixat alguna confi
+guració...
+

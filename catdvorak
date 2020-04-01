@@ -1,0 +1,9 @@
+#! /bin/sh
+#setxkbmap -model microsoftelite -layout ct -variant dvorak -option grp_led:scroll,grp:menu_toggle -option "ctrl:nocaps"
+setxkbmap -layout ct -variant dvorak -option grp_led:scroll,grp:menu_toggle -option "ctrl:nocaps"
+#xmodmap ~/.Xmodmap
+
+#xkbprint -eps -color -fit -ll 1 -level2 $DISPLAY $LIB/X11/xkb/ca-dv.eps
+#xkbprint -eps -color -fit -ll 3 -level2 $DISPLAY $LIB/X11/xkb/ca-dv-altgr.eps
+#gv $LIB/X11/xkb/ca-dv.eps &
+#gv $LIB/X11/xkb/ca-dv-altgr.eps &

@@ -1,0 +1,218 @@
+// $XKeyboardConfig: xkeyboard-config/symbols/ct,v 0.1 2009-08-12 18:12:14 svu Exp $
+
+// based on the UK & Spanish keyboards
+// Modified for a Catalan Dvorak Keyboard by Marc Vallbe
+//
+// $XFree86: xc/programs/xkbcomp/symbols/ct,v 0.1 2009/08/12 04:03:28 dawes Exp $
+
+partial default alphanumeric_keys
+xkb_symbols "basic" {
+
+// Describes the differences between a very simple en_US
+// keyboard and a very simple ct keyboard layout defined by
+// the SVR4 European Language Supplement and sometimes also
+// known as the IBM 166 layout.
+
+// In addition to the map for the alphanumeric keys, which varies
+// according to the language selected, Linux also uses a map for the
+// other keys, which is chosen automatically when your keyboard is
+// detected. For most users, this will be one of the variants in the
+// file pc. The language map takes precedence, so alterations to keys
+// like Delete or Caps Lock can be incorporated into it to save having
+// to alter the hardware map as well.  
+
+// The file "latin" gives a basic QWERTY keyboard; "ca" defines those
+// keys that differ in the Catalan one and refers the computer to the
+// other listing with the command:
+    include "latin(type4)"
+
+    name[Group1]="Catalan";
+
+    key <AE01>	{ [         1,     exclam,          bar,   exclamdown ]	};
+    key <AE03>	{ [         3, periodcentered, numbersign,   sterling ]	};
+    key <AE04>	{ [         4,     dollar,   asciitilde,       dollar ]	};
+    key <AE06>	{ [         6,  ampersand,      notsign,  fiveeighths ]	};
+    key <AE11>	{ [apostrophe,   question,    backslash, questiondown ]	};
+    key <AE12>	{ [exclamdown, questiondown, asciitilde,   asciitilde ]	};
+
+    key <AD11>	{ [dead_grave, dead_circumflex, bracketleft, dead_abovering ] };
+    key <AD12>	{ [      plus,   asterisk, bracketright,  dead_macron ]	};
+
+    key <AC10>	{ [    ntilde, Ntilde,   asciitilde, dead_doubleacute ]	};
+    key <AC11>	{ [dead_acute, dead_diaeresis, braceleft,   braceleft ]	};
+    key <TLDE>	{ [ masculine, ordfeminine,    backslash,   backslash ]	};
+
+    key <BKSL>	{ [  ccedilla,   Ccedilla,   braceright,   dead_breve ]	};
+
+    include "level3(ralt_switch)"
+};
+
+partial alphanumeric_keys
+xkb_symbols "Sundeadkeys" {
+
+    include "es(basic)"
+
+    key <AC11>	{ [SunFA_Acute, SunFA_Diaeresis, braceleft, braceleft ]	};
+    key <AD11>	{ [SunFA_Grave, SunFA_Circum, bracketleft, dead_abovering ] };
+};
+
+partial alphanumeric_keys
+xkb_symbols "sundeadkeys" {
+
+    include "ct(Sundeadkeys)"
+
+    name[Group1]="Catalan - Sun dead keys";
+};
+
+partial alphanumeric_keys
+xkb_symbols "nodeadkeys" {
+
+    include "ct(basic)"
+
+    name[Group1]="Catalan - Eliminate dead keys";
+
+    key <AD11>	{ [     grave, asciicircum,  bracketleft,      degree ]	};
+    key <AD12>	{ [      plus,   asterisk, bracketright,       macron ]	};
+    key <AC10>	{ [    ntilde,     Ntilde,   asciitilde,  doubleacute ]	};
+    key <AC11>	{ [     acute,  diaeresis,    braceleft,    braceleft ]	};
+    key <BKSL>	{ [  ccedilla,   Ccedilla,   braceright,        breve ]	};
+    key <AB10>	{ [     minus, underscore, dead_belowdot,    abovedot ]	};
+};
+
+// Improved ergonomic Catalan keymap using Dvorak method.
+// Designed by Marc.Vallbe @ gorgnegre.cat, http://computari.gorgnegre.cat/Dvorak-Catala.
+// XOrg integration in 2009 by Frédéric Boiteux <fboiteux @ free.fr>
+//
+// Layout (version 0.1) for a pc105 keyboard (Catalan) :
+// ┌───┐
+// │ S  A │   S = Shift,  A = AltGr + Shift
+// │ s  a  │   s = normal, a = AltGr
+// └───┘
+// ┌──┬──┬───┬───┬──┬────┬───┬───┬───┬──┬───┬───┬────┲━━━━━━━┓
+// │ ? ° │ ! ¹ │ " ½ │ € ⅓ │$ ¼ │% ⅝    │^ ¾ │ & ⅞ │* ⅜ │ (  ~ │ ) Ø │ { *** │ } *** ┃                   ┃
+// │ ` ¿ │1 ¡ │ 2 ²  │3  ·   │4  £ │ 5  3/5 │ 6  ³ │  7 ¦   │8 ⅛ │ 9 ^ │ 0  ¨ │ [ ´    │ ]   `   ┃     Enrere   ┃
+// ┢━━┷━┱┴──┬┴─┬─┴┬─┴─┬──┴┬──┴┬──┴┬──┴┬─┴─┬─┴─┬─┴─┬──┺━┳━━━━━┫
+// ┃          ┃ # ÷ │ ; Ò │: È │ P  Ï  │ J  Ü │G  Đ  │ D Ð │R  ™ │ B  Ł │ H Ħ  │  _  ¯ │ =  ±   ┃             ┃
+// ┃ Tab   ┃ '  ×  │ , ò │ . è │ p  ï  │ j  ü  │g  đ  │ d  ð │ r ®  │ b  ł ŀŀ│ h ħ  │  -  ­  │ +  ≠   ┃ Retorn ┃
+// ┣━━━━┻┱──┴┬─┴─┬┴─┬─┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬───┺┓           ┃
+// ┃             ┃  A À │ O Ó │E É│ I Í │ U Ú │F  Ŧ  │ T Þ  │ S  §  │L Ŀ  │N  Ñ │ | ¬  │ ~  ¶   ┃           ┃
+// ┃ B.Maj.  ┃  a à  │ o  ó │e é │ i í │ u  ú │ f   ŧ │ t  þ  │ s ß  │ l  ŀ │ n  ñ  │ /   \  │ @  ·   ┃           ┃
+// ┣━━━━┳┹──┬┴──┬┴─┬┴─┬┴──┬┴──┬┴──┬┴──┬┴──┬┴──┬┴──┲┷━━━━┻━━━━┫
+// ┃          ┃ > »  │W ≥ │K ←│Ç →│ V ª │ Y  ¥  │  C ©  │ M ↑│Q*** │X  ↓ │Z  ***┃                          ┃
+// ┃ Maj.  ┃ < «  │ w ≤ │ k ĸ│ ç ¸│  v  º │y *** │ c  ¢  │ m  µ │ q  ¤ │ x   ¯ │z  …  ┃    Majúscules     ┃
+// ┣━━━━╋━━━┷┳━━┷━┱┴──┴───┴───┴───┴───┴─┲━┷━━━╈━━━┻━┳━━━━━┳━━┛
+// ┃          ┃           ┃           ┃                                                        ┃             ┃              ┃             ┃
+// ┃ Ctrl   ┃  Meta ┃    Alt  ┃                     Espai                           ┃  AltGr  ┃   Menú  ┃    Ctrl   ┃
+// ┗━━━━┻━━━━┻━━━━┹─────────────────────┺━━━━━┻━━━━━┻━━━━━┛
+
+partial alphanumeric_keys
+xkb_symbols "dvorak" {
+
+    name[Group1]="Catalan - Dvorak";
+
+    // Alphanumeric section
+    key <TLDE> {[        grave, question, questiondown, degree	]};
+    key <AE01> {[        1, exclam, exclamdown, onesuperior		]};
+    key <AE02> {[        2, quotedbl, twosuperior, onehalf			]};
+    key <AE03> {[        3, EuroSign, periodcentered, onethird		]};
+    key <AE04> {[        4, dollar, sterling, onequarter		]};
+    key <AE05> {[        5, percent, threefifths, fiveeighths		]};
+    key <AE06> {[        6, asciicircum, threesuperior, threequarters	]};
+    key <AE07> {[        7, ampersand, brokenbar, seveneighths	]};
+    key <AE08> {[        8, asterisk , oneeighth, threeeighths	]};
+    key <AE09> {[        9, parenleft, dead_circumflex, dead_tilde	]};
+    key <AE10> {[        0, parenright,  dead_diaeresis, Ooblique ]};
+    key <AE11> {[        bracketleft, braceleft, dead_acute, dead_underline	]};
+    key <AE12> {[	   bracketright, braceright, dead_grave, dead_overstrike	]};
+    key <BKSP> { [ BackSpace                                                    ] };
+
+    key <AD01> {[	   apostrophe, numbersign, multiply, division ]};
+    key <AD02> {[	   comma, semicolon, ograve, Ograve  ]};
+    key <AD03> {[	   period, colon, egrave, Egrave ]};
+    key <AD04> {[	   p, P, idiaeresis, Idiaeresis	 ]};
+    key <AD05> {[	   j, J, udiaeresis,  Udiaeresis	 ]};
+    key <AD06> {[	    g, G, dstroke, Dstroke	]};
+    key <AD07> {[	  d, D, eth, ETH		 ]};
+    key <AD08> {[	  r, R, registered, trademark ]};
+    key <AD09> {[	   b, B, lstroke, Lstroke   ]};
+    key <AD10> {[       h, H, hstroke, Hstroke ]};
+    key <AD11> {[	   minus, underscore, hyphen, macron ]};
+    key <AD12> {[	   plus, equal, notequal, plusminus ]};
+
+    key <CAPS> {	[ Caps_Lock	]};
+    key <AC01> {[	   a, A, agrave, Agrave	   ]};
+    key <AC02> {[	   o, O, oacute, Oacute	     ]};
+    key <AC03> {[	   e, E, eacute, Eacute	     ]};
+    key <AC04> {[	   i, I, iacute, Iacute		   ]};
+    key <AC05> {[	   u, U, uacute, Uacute	   ]};
+    key <AC06> {[	   f, F, tslash, Tslash	   ]};
+    key <AC07> {[	   t, T, thorn, THORN	   ]};
+    key <AC08> {[	   s, S, ssharp, section	    ]};
+    key <AC09> {[	   l, L,  0x1000140,  0x100013F	 ]};
+    key <AC10> {[	   n, N, ntilde, Ntilde	   ]};
+    key <AC11> {[	   slash, bar, backslash, notsign ]};
+    key <BKSL> {[	   at, asciitilde, periodcentered, paragraph ]}; 
+//dead_caron,, Lambda,gamma,dead_ogonek
+    key <LSGT> {[ less, greater, guillemotleft, guillemotright  ]};
+    key <AB01> {[      w, W, lessthanequal, greaterthanequal  ]};
+    key <AB02> {[      k, K, kappa,leftarrow		]};
+    key <AB03> {[       ccedilla, Ccedilla,  dead_cedilla, rightarrow ]};
+    key <AB04> {[       v, V, masculine,ordfeminine		]};
+    key <AB05> {[       y, Y, NoSymbol , yen		]};
+    key <AB06> {[       c, C, cent, copyright ]};
+    key <AB07> {[       m, M, mu, uparrow		]};
+    key <AB08> {[       q, Q, currency, dead_breve		]};
+    key <AB09> {[       x, X, dead_macron,  downarrow	]};
+    key <AB10> {[        z, Z,  0x1002026, dead_abovedot ]};
+
+    include "level3(ralt_switch)"
+};
+
+
+// Copied from macintosh_vndr/es
+partial alphanumeric_keys 
+xkb_symbols "mac" {
+
+    // Describes the differences between a very simple mac_US
+    // keyboard and a very simple Catalan keybaord
+
+    include "ca"
+    name[Group1]= "Catalan - Macintosh";
+
+};
+
+partial alphanumeric_keys
+xkb_symbols "olpc" {
+
+    include "us(basic)"
+    name[Group1]="Catalan";
+
+    key <TLDE> { [    masculine,    ordfeminine      ] };
+    key <AE01> { [            1,         exclam,             bar ] };
+    key <AE02> { [            2,       quotedbl,              at ] };
+    key <AE03> { [            3,     dead_grave,      numbersign,   grave           ] };
+    key <AE05> { [            5,        percent,     asciicircum,   dead_circumflex ] };
+    key <AE06> { [            6,      ampersand,         notsign ] };
+    key <AE07> { [            7,          slash,       backslash ] };
+    key <AE08> { [            8,      parenleft                         ] };
+    key <AE09> { [            9,     parenright                         ] };
+    key <AE10> { [            0,          equal                  ] };
+    key <AE11> { [   apostrophe,       question                  ] };
+    key <AE12> { [   exclamdown,   questiondown                  ] };
+
+    key <AD03> { [            e,              E,        EuroSign ] };
+    key <AD11> { [   dead_acute, dead_diaeresis,           acute,   dead_abovering  ] };
+    key <AD12> { [  bracketleft,      braceleft                  ] };
+
+    key <AC10> { [       ntilde,        Ntilde                  ] };
+    key <AC11> { [         plus,       asterisk,      dead_tilde ] };
+    key <BKSL> { [ bracketright,     braceright                  ] };
+
+    key <AB08> { [        comma,      semicolon                  ] };
+    key <AB09> { [       period,          colon                  ] };
+    key <AB10> { [        minus,     underscore                  ] };
+  
+    key <I219> { [         less,        greater,  ISO_Next_Group ] };
+
+    include "level3(ralt_switch)"
+};
