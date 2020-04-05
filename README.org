@@ -45,4 +45,4 @@ or
 $>  setxkbmap -layout gb=
 #+END_SRC.
 
-
+Check https://wiki.debian.org/Keyboard for other ways of setting the layout.
