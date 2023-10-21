@@ -14,6 +14,7 @@ Debian-ish operating sistems.
                 layout. Basically it runs =setxkbmap -layout ct=.
 - =gb= :: bash program to set a standard Great Britain keyboard
           layout. Basically it runs =setxkbmap -layout gb=.
+- =90-catdvorak-kbd.conf= :: X11 configuration file to autostart catdvorak.
 - =freq_cat.ods= :: Visual of catdvorak layout, and comparison of hand &
                     finger use between Catdvorak and Qwerty layouts.
 - =freq_cat.pdf= :: pdf export of =freq_cat.ods=
@@ -25,6 +26,7 @@ $> git clone https://github.com/gorgnegre/catdvorak.git
 $> cd catdvorak
 $> sudo mv ct /usr/share/X11/xkb/symbols/ct
 $> sudo mv catdvorak gb /usr/local/bin
+$> sudo mv 90-catdvorak-kbd.conf /etc/X11/xorg.conf.d/
 #+END_SRC
 ** Use
 If you want to use the catdvorak layout, run either
